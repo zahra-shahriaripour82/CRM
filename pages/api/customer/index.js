@@ -1,0 +1,21 @@
+import connectDB from "@/utils/connectDB";
+
+export default async function handler (res,req) {
+    try{
+        await connectDB()
+    }
+    catch (err){
+        console.log(err);
+        res.status(500).json({status:"faild",message:"Error in connecting to DB"})
+        return
+        
+    }
+    if(req.method === "POST"){
+        const data=req.body.data;
+        
+        if (!data.name || !data.lastName || !data.email)
+            return res
+              .status(400)
+              .json({ status: "failed", message: "Invalid data" });
+    }
+}

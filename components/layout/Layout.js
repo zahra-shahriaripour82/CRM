@@ -10,10 +10,10 @@ function Layout({children}) {
   </header>
   <div className="main">{children}</div>
   <footer className="footer">
-    <a href="https://botostart.ir" target="_blank" rel="noreferrer">
-      Botostart
+    <a href="https://github.com/zahra-shahriaripour82/CRM" target="_blank" rel="noreferrer">
+     Zahra Shahriaripour
     </a>{" "}
-    Next.js course | CRM Project &copy;
+     CRM Project &copy;
   </footer>
   </>
   )
