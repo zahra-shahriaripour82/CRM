@@ -4,12 +4,12 @@ const customerSchema = new Schema({
   name: {
     type: String,
     required: true,
-    minLength: 1,
+    minLength: 3,
   },
   lastName: {
     type: String,
     required: true,
-    minLength: 1,
+    minLength: 4,
   },
   email: {
     type: String,

@@ -1,6 +1,8 @@
+import Customer from "@/models/Customer";
 import connectDB from "@/utils/connectDB";
 
-export default async function handler (res,req) {
+
+export default async function handler (req,res) {
     try{
         await connectDB()
     }
@@ -17,5 +19,15 @@ export default async function handler (res,req) {
             return res
               .status(400)
               .json({ status: "failed", message: "Invalid data" });
+
+              try{
+                const customer=await Customer.create(data);
+              return res.status(201).json({status:"success",message:"Data Created",data:customer})
+              }
+              catch(err){
+            console.log(err);
+            res.status(500).json({status:"failed",message:"Error in storing data"})
+            
+              }
     }
 }
