@@ -13,8 +13,7 @@ export default async function handler (req,res) {
         
     }
     if(req.method === "POST"){
-      const body = await req.json();
-const data = body.data;
+      const data = req.body.data;
         console.log(data);
         
         if (!data.name || !data.lastName || !data.email)

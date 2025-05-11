@@ -24,7 +24,7 @@ function AddCustomer() {
 
     }
     )
-    const data= await res.json();
+    const data = await res.json();
     console.log(data);
     if(data.status=== "success") router.push("/")
 
