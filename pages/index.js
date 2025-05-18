@@ -1,4 +1,4 @@
-"use client"
+
 import HomePage from "@/components/templates/HomePage";
 import Customer from "@/models/Customer";
 import connectDB from "@/utils/connectDB";

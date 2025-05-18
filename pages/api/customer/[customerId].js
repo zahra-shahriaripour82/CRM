@@ -11,17 +11,18 @@ export default async function handler(req, res) {
       .json({ status: "faild", message: "Error in connecting to DB" });
     return;
   }
-  if (req.method === "DELETE") {
-    // get customer id from query
-    const id = req.query.customerId;
+  if (req.method === "GET") {
+    const id = req.query.comstumerId;
     try {
-      await Customer.deleteOne({ _id: id });
-      res.status(201).json({ status: "success", message: "Data Deleted" });
+      const customer = await Customer.findOne({ _id: id });
+      //send data for front
+      res.status(200).json({ status: "success", data: customer });
     } catch (err) {
       console.log(err.message);
-      res
-        .status(500)
-        .json({ status: "faild", message: "Error in connecting to database" });
+      res.status(500).json({
+        status: "failed",
+        message: "Error in retrieving data from database",
+      });
     }
   }
 }
