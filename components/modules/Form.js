@@ -1,3 +1,4 @@
+import { useState } from "react";
 import FormInput from "./FormInput";
 import ItemList from "./ItemList";
 
@@ -11,7 +12,12 @@ const formFields = [
   { name: "date", label: "Date", type: "date" },
 ];
 function Form({ form, setForm }) {
+  const [error,setError]=useState("")
+  console.log("form",form);
+  
   const changeHandler = (e) => {
+   
+    
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
@@ -26,6 +32,7 @@ function Form({ form, setForm }) {
           type={field.type}
           value={form[field.name]}
           onChange={changeHandler}
+         
         />
       ))}
       <ItemList form={form} setForm={setForm} />
