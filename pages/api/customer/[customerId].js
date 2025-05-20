@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     return;
   }
   if (req.method === "GET") {
-    const id = req.query.comstumerId;
+    const id = req.query.customerId;
     try {
       const customer = await Customer.findOne({ _id: id });
       //send data for front

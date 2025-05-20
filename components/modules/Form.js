@@ -12,7 +12,7 @@ const formFields = [
   { name: "date", label: "Date", type: "date" },
 ];
 function Form({ form, setForm }) {
-  const [error,setError]=useState("")
+
   console.log("form",form);
   
   const changeHandler = (e) => {
